@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мое Портфолио</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { 
+    font-family: 'Montserrat', sans-serif; /* Было sans-serif */
+    background-color: #f8f9fa; 
+    color: #2d3436;
+    margin: 0;
+    padding: 50px; 
+}
+        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
+        h1 { color: #333; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1 id="greeting">Привет! Я начинающий разработчик</h1>
+        <p>Я создаю современные сайты с помощью ИИ.</p>
+        <button onclick="changeText()">Нажми на меня</button>
+    </div>
+
+    <script>
+        function changeText() {
+            document.getElementById('greeting').innerText = "Круто! Ты запустил свой первый скрипт!";
+            document.getElementById('greeting').style.color = "green";
+        }
+    </script>
+
+</body>
+</html>
+<div class="services">
+    <h2>Что я могу сделать:</h2>
+    <div class="grid">
+        
+        <div class="service-item">
+            <i class="fas fa-code" style="color: #007bff; font-size: 24px; margin-bottom: 10px; display: block;"></i>
+            <h3>Лендинги</h3>
+            <p>Быстрая верстка одностраничных сайтов.</p>
+        </div>
+
+        <div class="service-item">
+            <i class="fab fa-telegram" style="color: #0088cc; font-size: 24px; margin-bottom: 10px; display: block;"></i>
+            <h3>Telegram-боты</h3>
+            <p>Автоматизация вашего бизнеса.</p>
+        </div>
+
+        <div class="service-item">
+            <i class="fas fa-tools" style="color: #6c757d; font-size: 24px; margin-bottom: 10px; display: block;"></i>
+            <h3>Правки кода</h3>
+            <p>Исправлю ошибки на вашем сайте.</p>
+        </div>
+
+    </div>
+</div>
+
+<style>
+.service-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-item:hover {
+    transform: translateY(-10px); /* Блок приподнимается при наведении */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+    .services { margin-top: 40px; }
+    .grid { 
+        display: flex; 
+        justify-content: center; 
+        gap: 20px; 
+        flex-wrap: wrap; 
+        max-width: 1000px; 
+        margin: 0 auto; 
+    }
+    .service-item { 
+        background: #fff; 
+        border-left: 5px solid #007bff; 
+        padding: 15px; 
+        width: 250px; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        text-align: left;
+    }
+</style>
