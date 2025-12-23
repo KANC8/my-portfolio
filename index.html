@@ -16,7 +16,14 @@
     margin: 0;
     padding: 50px; 
 }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
+       .card {
+    background: white;
+    padding: 40px; /* Увеличили отступы внутри */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Сделали тень мягче */
+    display: inline-block;
+    transition: 0.3s;
+}
         h1 { color: #333; }
         button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
         button:hover { background: #0056b3; }
@@ -24,24 +31,32 @@
 </head>
 <body>
 <header class="navbar">
-    <div class="logo">KANC8.DEV</div>
+    <div class="logo">
+    <a href="#" style="text-decoration: none; color: #007bff;">KANC8.DEV</a>
+</div>
     <nav>
         <a href="#">Главная</a>
         <a href="#services">Услуги</a>
         <a href="https://t.me/kanc_8" target="_blank" style="background: #007bff; color: white; padding: 8px 15px; border-radius: 5px;">Написать в Telegram</a>
     </nav>
 </header>
-    <div class="card">
-        <h1 id="greeting">Привет! Я начинающий разработчик</h1>
-        <p>Я создаю современные сайты с помощью ИИ.</p>
-        <button onclick="changeText()">Нажми на меня</button>
-    </div>
+    <div class="card" style="max-width: 600px; width: 90%;">
+    <h1 id="greeting">Цифровые решения для вашего бизнеса</h1>
+    <p>Создаю современные сайты и автоматизирую процессы с помощью ИИ.</p>
+    <button onclick="changeText()">Обсудить проект</button>
+</div>
 
     <script>
-        function changeText() {
-            document.getElementById('greeting').innerText = "Круто! Ты запустил свой первый скрипт!";
-            document.getElementById('greeting').style.color = "green";
-        }
+       function changeText() {
+    const greeting = document.getElementById('greeting');
+    greeting.innerText = "Давайте создадим что-то крутое! 🚀";
+    greeting.style.color = "#2ecc71"; // Меняем на приятный зеленый
+    
+    // Через 2 секунды перекинем пользователя к разделу связи
+    setTimeout(() => {
+        window.location.href = "#services"; 
+    }, 1500);
+}
     </script>
 
 </body>
@@ -114,6 +129,7 @@
     }
 
 </style>
+
 
 
 
