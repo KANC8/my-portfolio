@@ -175,10 +175,19 @@
 
     <main class="hero">
         <div class="card">
-            <h1 id="greeting">Цифровые решения для вашего бизнеса</h1>
-            <p>Создаю современные сайты и автоматизирую процессы с помощью ИИ.</p>
-            <button onclick="changeText()">Обсудить проект</button>
-        </div>
+    <h1 id="greeting">Цифровые решения для вашего бизнеса</h1>
+    <p id="sub-text">Создаю современные сайты и автоматизирую процессы с помощью ИИ.</p>
+    
+    <form id="contact-form" action="https://formspree.io/f/mnjalkqv" method="POST" style="display: none; margin-top: 20px;">
+        <input type="text" name="name" placeholder="Ваше имя" required style="width: 80%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+        <input type="email" name="email" placeholder="Ваш Email" required style="width: 80%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+        <textarea name="message" placeholder="Ваш проект" required style="width: 80%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; height: 80px;"></textarea>
+        <br>
+        <button type="submit">Отправить заявку</button>
+    </form>
+
+    <button id="main-btn" onclick="showForm()">Обсудить проект</button>
+</div>
     </main>
 
     <section class="services" id="services">
@@ -212,19 +221,23 @@
     </footer>
 
     <script>
-        function changeText() {
-            const greeting = document.getElementById('greeting');
-            greeting.innerText = "Давайте создадим что-то крутое! 🚀";
-            greeting.style.color = "#2ecc71";
-            
-            // Плавный скролл к услугам через 1.5 секунды
-            setTimeout(() => {
-                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-            }, 1500);
-        }
+       function showForm() {
+    // Скрываем заголовок и старую кнопку
+    document.getElementById('main-btn').style.display = 'none';
+    document.getElementById('sub-text').style.display = 'none';
+    
+    const greeting = document.getElementById('greeting');
+    greeting.innerText = "Расскажите о вашей задаче";
+    greeting.style.color = "#007bff";
+
+    // Показываем форму
+    const form = document.getElementById('contact-form');
+    form.style.display = 'block';
+}
     </script>
 
 </body>
 </html>
+
 
 
