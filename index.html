@@ -1,138 +1,228 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="icon" type="image/png" href="android-chrome-512x512.png">
     <meta charset="UTF-8">
-    <title>Мое Портфолио</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KANC8.DEV — Цифровые решения</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <style>
-        body { 
-    font-family: 'Montserrat', sans-serif; /* Было sans-serif */
-    background-color: #f8f9fa; 
-    color: #2d3436;
-    margin: 0;
-    padding: 50px; 
-}
-       .card {
-    background: white;
-    padding: 40px; /* Увеличили отступы внутри */
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Сделали тень мягче */
-    display: inline-block;
-    transition: 0.3s;
-}
-        h1 { color: #333; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-        button:hover { background: #0056b3; }
+        /* Общие настройки страницы */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #2d3436;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Шапка сайта */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .logo a {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #007bff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .navbar .logo a:hover {
+            opacity: 0.7;
+        }
+        .navbar nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .navbar nav a:hover {
+            color: #007bff;
+        }
+
+        /* Главное "Облачко" (Hero Section) */
+        .hero {
+            flex: 1; /* Растягивает блок, чтобы прижать футер к низу */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .card {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        .card h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        .card p {
+            font-size: 1.1rem;
+            color: #636e72;
+            margin-bottom: 30px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Блок услуг */
+        .services {
+            padding: 60px 10%;
+            text-align: center;
+        }
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .service-item {
+            background: #fff;
+            border-left: 5px solid #007bff;
+            padding: 25px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: left;
+            transition: 0.3s;
+            border-radius: 0 15px 15px 0;
+        }
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .service-item i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Подвал */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: auto;
+        }
+        footer .socials i {
+            font-size: 1.5rem;
+            margin: 0 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        footer .socials i:hover {
+            color: #007bff;
+        }
+
+        /* Адаптивность для мобилок */
+        @media (max-width: 600px) {
+            .card h1 { font-size: 1.8rem; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .navbar nav a { margin: 0 10px; }
+            .grid { flex-direction: column; align-items: center; }
+        }
     </style>
 </head>
 <body>
-<header class="navbar">
-    <div class="logo">
-    <a href="#" style="text-decoration: none; color: #007bff;">KANC8.DEV</a>
-</div>
-    <nav>
-        <a href="#">Главная</a>
-        <a href="#services">Услуги</a>
-        <a href="https://t.me/kanc_8" target="_blank" style="background: #007bff; color: white; padding: 8px 15px; border-radius: 5px;">Написать в Telegram</a>
-    </nav>
-</header>
-    <div class="card" style="max-width: 600px; width: 90%;">
-    <h1 id="greeting">Цифровые решения для вашего бизнеса</h1>
-    <p>Создаю современные сайты и автоматизирую процессы с помощью ИИ.</p>
-    <button onclick="changeText()">Обсудить проект</button>
-</div>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="#">KANC8.DEV</a>
+        </div>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="https://t.me/твой_ник" target="_blank">Связаться</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="card">
+            <h1 id="greeting">Цифровые решения для вашего бизнеса</h1>
+            <p>Создаю современные сайты и автоматизирую процессы с помощью ИИ.</p>
+            <button onclick="changeText()">Обсудить проект</button>
+        </div>
+    </main>
+
+    <section class="services" id="services">
+        <h2>Что я могу сделать:</h2>
+        <div class="grid">
+            <div class="service-item">
+                <i class="fas fa-code"></i>
+                <h3>Лендинги</h3>
+                <p>Быстрая верстка одностраничных сайтов любой сложности.</p>
+            </div>
+            <div class="service-item">
+                <i class="fab fa-telegram"></i>
+                <h3>Telegram-боты</h3>
+                <p>Автоматизация вашего бизнеса и интеграция с ИИ.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-tools"></i>
+                <h3>Правки кода</h3>
+                <p>Исправлю ошибки, ускорю работу и обновлю ваш сайт.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 KANC8.DEV — Все права защищены</p>
+        <div class="socials">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-github"></i>
+            <a href="https://t.me/твой_ник" target="_blank" style="color: white;"><i class="fab fa-telegram"></i></a>
+        </div>
+    </footer>
 
     <script>
-       function changeText() {
-    const greeting = document.getElementById('greeting');
-    greeting.innerText = "Давайте создадим что-то крутое! 🚀";
-    greeting.style.color = "#2ecc71"; // Меняем на приятный зеленый
-    
-    // Через 2 секунды перекинем пользователя к разделу связи
-    setTimeout(() => {
-        window.location.href = "#services"; 
-    }, 1500);
-}
+        function changeText() {
+            const greeting = document.getElementById('greeting');
+            greeting.innerText = "Давайте создадим что-то крутое! 🚀";
+            greeting.style.color = "#2ecc71";
+            
+            // Плавный скролл к услугам через 1.5 секунды
+            setTimeout(() => {
+                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            }, 1500);
+        }
     </script>
 
 </body>
 </html>
-<div class="services">
-    <h2>Что я могу сделать:</h2>
-    <div class="grid">
-        
-        <div class="service-item">
-            <i class="fas fa-code" style="color: #007bff; font-size: 24px; margin-bottom: 10px; display: block;"></i>
-            <h3>Лендинги</h3>
-            <p>Быстрая верстка одностраничных сайтов.</p>
-        </div>
-
-        <div class="service-item">
-            <i class="fab fa-telegram" style="color: #0088cc; font-size: 24px; margin-bottom: 10px; display: block;"></i>
-            <h3>Telegram-боты</h3>
-            <p>Автоматизация вашего бизнеса.</p>
-        </div>
-
-        <div class="service-item">
-            <i class="fas fa-tools" style="color: #6c757d; font-size: 24px; margin-bottom: 10px; display: block;"></i>
-            <h3>Правки кода</h3>
-            <p>Исправлю ошибки на вашем сайте.</p>
-        </div>
-
-    </div>
-</div>
-
-<style>
-    .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 10%;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-.navbar .logo { font-weight: bold; font-size: 1.5rem; color: #007bff; }
-.navbar nav a { text-decoration: none; color: #333; margin-left: 20px; font-weight: 500; }
-.navbar nav a:hover { color: #007bff; }
-.service-item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.service-item:hover {
-    transform: translateY(-10px); /* Блок приподнимается при наведении */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-    .services { margin-top: 40px; }
-    .grid { 
-        display: flex; 
-        justify-content: center; 
-        gap: 20px; 
-        flex-wrap: wrap; 
-        max-width: 1000px; 
-        margin: 0 auto; 
-    }
-    .service-item { 
-        background: #fff; 
-        border-left: 5px solid #007bff; 
-        padding: 15px; 
-        width: 250px; 
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        text-align: left;
-    }
-
-</style>
-
-
-
-
-
-
-
